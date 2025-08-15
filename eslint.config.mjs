@@ -34,12 +34,55 @@ export default antfu(
 
       // Antfu / Unicorn / Perfectionist
       'antfu/no-top-level-await': 'off',
+
+      // Import sorting & grouping
+      'import/order': [
+        'error',
+        {
+          groups: [
+            'builtin', // Node.js built-ins
+            'external', // npm packages
+            ['internal', 'parent', 'sibling', 'index'], // project files
+            'type', // Type-only imports
+          ],
+          pathGroups: [
+            {
+              pattern: '@types/**',
+              group: 'type',
+              position: 'after',
+            },
+            {
+              pattern: '@components/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '@utils/**',
+              group: 'internal',
+              position: 'after',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['builtin'],
+          'newlines-between': 'always',
+          alphabetize: { order: 'asc', caseInsensitive: true },
+        },
+      ],
+
+      // Sorting with perfectionist (optional but keeps order strict)
       'perfectionist/sort-imports': [
         'error',
         {
-          tsconfigRootDir: '.',
+          type: 'natural',
+          order: 'asc',
+          groups: ['builtin', 'external', 'type', 'internal', 'parent', 'sibling', 'index'],
+          'newlines-between': 'always',
         },
       ],
+
+      // Enforce <Fragment> instead of <>
+      'react/jsx-fragments': ['error', 'element'],
+
+      // Filenames in kebab-case
       'unicorn/filename-case': [
         'error',
         {
