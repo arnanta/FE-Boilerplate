@@ -33,7 +33,7 @@ export default defineConfig({
       '@utils': '/src/utils',
     },
   },
-  build: {
-    sourcemap: true,
-  },
+  // build: {
+  //   sourcemap: true,
+  // },
 });
