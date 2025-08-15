@@ -33,6 +33,8 @@ export default defineConfig({
       '@styles': '/src/styles',
       '@types': '/src/types',
       '@utils': '/src/utils',
+      '@hooks': '/src/hooks',
+      '@routes': '/src/routes',
     },
   },
   // build: {
