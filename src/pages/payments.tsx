@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { createPayment, getPayments } from '../api/payments';
+import { getPayments } from '../api/payments';
 // import styles from "./styles/Payments.module.css";
 import styles from '../components/styles/Payments.module.css';
 
@@ -10,9 +10,9 @@ interface Payment {
   created_at: string;
 }
 
-interface PaymentsProps {
-  token: string;
-}
+// interface PaymentsProps {
+//   token: string;
+// }
 
 export const Payments = () => {
   const [amount, setAmount] = useState('');
