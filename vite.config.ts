@@ -37,6 +37,20 @@ export default defineConfig({
       '@routes': '/src/routes',
     },
   },
+  server: {
+    proxy: {
+      "/api/auth": {
+        target: "http://localhost:3000",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/auth/, ""),
+      },
+      "/api/payments": {
+        target: "http://localhost:3001",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/payments/, ""),
+      },
+    },
+  },
   // build: {
   //   sourcemap: true,
   // },

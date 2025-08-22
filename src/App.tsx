@@ -4,6 +4,7 @@ import Home from '@pages/home';
 import NotFound from '@pages/not-found';
 import About from '@pages/about';
 import Login from '@pages/login';
+import { Payments } from '@pages/payments';
 import { PrivateRoute } from '@routes/private-routes';
 
 function App() {
@@ -14,8 +15,7 @@ function App() {
           path="/"
           element={
             <PrivateRoute>
-              {' '}
-              <Home />{' '}
+              <Home />
             </PrivateRoute>
           }
         />
@@ -23,12 +23,12 @@ function App() {
           path="/about"
           element={
             <PrivateRoute>
-              {' '}
-              <About />{' '}
+              <About />
             </PrivateRoute>
           }
         />
         <Route path="/login" element={<Login />} />
+        <Route path="/payments" element={<Payments />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
